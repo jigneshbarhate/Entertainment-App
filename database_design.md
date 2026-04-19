@@ -1,8 +1,5 @@
 # Database Architecture: Entertainment App
 
-> [!NOTE]
-> This document outlines the database architecture for the Entertainment App. The application utilizes **MongoDB**, a highly scalable NoSQL database. The schema is strictly typed and managed using **Mongoose** (an Object Data Modeling library for Node.js).
-
 ## 📊 Entity-Relationship Diagram
 
 The diagram below illustrates the structural relationship between our two core data entities.
@@ -37,8 +34,6 @@ erDiagram
 ## 🗄️ Detailed Schema Breakdown
 
 ### 👤 `Users` Collection
-> [!IMPORTANT]
-> The `Users` collection is responsible for handling authentication and identity. For security, passwords are automatically encrypted (hashed and salted) using `bcrypt` via Mongoose middleware before they are ever saved to the database.
 
 | Field Name | Data Type | Constraints & Properties | Description |
 | :--- | :--- | :--- | :--- |
@@ -51,8 +46,6 @@ erDiagram
 <br/>
 
 ### 🔖 `Bookmarks` Collection
-> [!TIP]
-> The `Bookmarks` collection caches essential metadata from the external TMDB API. Storing fields like `title` and `posterPath` locally prevents the app from having to make additional API calls just to render the user's saved list, significantly improving performance.
 
 | Field Name | Data Type | Constraints & Properties | Description |
 | :--- | :--- | :--- | :--- |
@@ -70,9 +63,5 @@ erDiagram
 ---
 
 ## 🔗 Relationships & Querying Explained
-
-> [!NOTE]
-> **One-to-Many Relationship (1:N)**
-> A single **User** can have many **Bookmarks**, but a single **Bookmark** strictly belongs to one **User**.
 
 When a user logs in and navigates to their bookmarked page, the backend executes a query against the `Bookmarks` collection filtering by the `user` field (the logged-in user's `_id`). Because the bookmark document contains all the necessary visual data (title, image, rating), the frontend can render the user's entire watchlist immediately without needing to cross-reference the external TMDB API.
