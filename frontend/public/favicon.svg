@@ -1,0 +1,10 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Film reel -->
+  <circle cx="100" cy="100" r="90" fill="#FF6347"/>
+  <circle cx="100" cy="100" r="70" fill="#000"/>
+  <circle cx="100" cy="100" r="50" fill="#FF6347"/>
+  <!-- Film strip -->
+  <rect x="40" y="60" width="120" height="80" fill="#000"/>
+  <!-- Play button -->
+  <polygon points="80,90 140,100 80,110" fill="#FF6347"/>
+</svg>
